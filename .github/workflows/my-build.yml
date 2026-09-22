@@ -52,21 +52,21 @@ jobs:
         if: runner.os == 'Windows'
         shell: bash
         run: |
-          curl -Lo skia.zip "$SKIA_URL_BASE/$SKIA_VERSION/Skia-Windows-Release-x64.zip"
+          curl -fLo skia.zip "$SKIA_URL_BASE/$SKIA_VERSION/Skia-Windows-Release-x64.zip"
           mkdir -p deps/skia
           unzip -q skia.zip -d deps/skia
 
       - name: Download prebuilt Skia (macOS)
         if: runner.os == 'macOS'
         run: |
-          curl -Lo skia.zip "$SKIA_URL_BASE/$SKIA_VERSION/Skia-macOS-Release-arm64.zip"
+          curl -fLo skia.zip "$SKIA_URL_BASE/$SKIA_VERSION/Skia-macOS-Release-arm64.zip"
           mkdir -p deps/skia
           unzip -q skia.zip -d deps/skia
 
       - name: Download prebuilt Skia (Linux)
         if: runner.os == 'Linux'
         run: |
-          curl -Lo skia.zip "$SKIA_URL_BASE/$SKIA_VERSION/Skia-Linux-Release-x64-libstdc++.zip"
+          curl -fLo skia.zip "$SKIA_URL_BASE/$SKIA_VERSION/Skia-Linux-Release-x64.zip"
           mkdir -p deps/skia
           unzip -q skia.zip -d deps/skia
 
